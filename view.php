@@ -43,7 +43,7 @@ require_capability("local/kopere_dashboard:manage", $context);
 
 if ($html = optional_param("html-pdf", false, PARAM_RAW)) {
     require_once($CFG->libdir . "/tcpdf/tcpdf.php");
-    $title = optional_param("title", false, PARAM_RAW);
+    $title = optional_param("title", false, PARAM_TEXT);
 
     // Crie uma nova instância de TCPDF.
     $pdf = new TCPDF();
