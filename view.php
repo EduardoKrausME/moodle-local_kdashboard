@@ -120,4 +120,4 @@ $PAGE->requires->js_call_amd("local_kdashboard/start_load", "init");
 
 get_kopere_lang();
 
-load_class();
+kopere_dashboard_load_class();
