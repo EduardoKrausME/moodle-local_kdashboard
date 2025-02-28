@@ -78,7 +78,7 @@ class dashboard_util {
             $link
                 .= "<div class=\"setting\">
                         <a href='{$settingurl}' class=\"kopere_link\">
-                            <img src='{$CFG->wwwroot}/local/kopere_dashboard/assets/dashboard/img/top-settings.svg'
+                            <img src='{$CFG->wwwroot}/local/kdashboard/assets/dashboard/img/top-settings.svg'
                                  alt=\"Settings\" >
                         </a>
                     </div>";
@@ -129,7 +129,7 @@ class dashboard_util {
             echo $OUTPUT->header();
 
             echo "
-                <div class=\"kopere_dashboard_div\">
+                <div class=\"kdashboard_div\">
                     <div class='menu-w hidden-print dashboard_menu_html-content'>
                         <div class='menu-and-user'>";
             \local_kdashboard\output\menu::create_menu();
@@ -160,7 +160,7 @@ class dashboard_util {
                         </div>
                     </div>
                 </div>
-                <div class='modal fade kopere_dashboard_modal_item' id='modal-edit' role=\"dialog\">
+                <div class='modal fade kdashboard_modal_item' id='modal-edit' role=\"dialog\">
                     <div class='kopere-modal-dialog'>
                         <div class='kopere-modal-content'>
                             <div class=\"loader\"></div>
@@ -185,7 +185,7 @@ class dashboard_util {
 
         $class = self::test_menu_active($menu->get_classname());
 
-        $plugin = "kopere_dashboard";
+        $plugin = "kdashboard";
         preg_match("/(.*?)-/", $menu->get_classname(), $menufunctionstart);
         if (isset($menufunctionstart[1])) {
             $plugin = "kopere_{$menufunctionstart[1]}";

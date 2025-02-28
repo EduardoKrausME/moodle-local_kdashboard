@@ -27,11 +27,11 @@ namespace local_kdashboard\install;
 use local_kdashboard\vo\local_kdashboard_event;
 
 /**
- * Class users_import_install
+ * Class event_install
  *
  * @package local_kdashboard\install
  */
-class users_import_install {
+class event_install {
 
     /**
      * Function install_or_update
@@ -82,7 +82,7 @@ class users_import_install {
      *
      * @throws \dml_exception
      */
-    public static function insert($event) {
+    private static function insert($event) {
         global $DB;
 
         $saveevent = $DB->record_exists("local_kdashboard_event", ["module" => $event->module, "event" => $event->event]);

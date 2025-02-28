@@ -240,7 +240,7 @@ define([
                     }
 
                     return `<img class="media-object"
-                                 src="${M.cfg.wwwroot}/local/kopere_dashboard/profile-image.php?type=photo_user&id=${data}"
+                                 src="${M.cfg.wwwroot}/local/kdashboard/profile-image.php?type=photo_user&id=${data}"
                                  style="width:35px;height:35px" />`;
                 },
                 secondsRenderer: function(data, type, row, info) {

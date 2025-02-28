@@ -58,9 +58,9 @@ if ($aos) {
     $html = "
 <html>
     <head>
-        <link vvveb-remove=\"true\" href=\"{$CFG->wwwroot}/local/kopere_dashboard/_editor/css/bootstrap-vvveb.css\" rel=\"stylesheet\">
-        <link href=\"{$CFG->wwwroot}/local/kopere_dashboard/_editor/libs/aos/aos.css\" rel=\"stylesheet\">
-        <link href=\"{$CFG->wwwroot}/local/kopere_dashboard/_editor/libs/aos/aos.js\" rel=\"stylesheet\">
+        <link vvveb-remove=\"true\" href=\"{$CFG->wwwroot}/local/kdashboard/_editor/css/bootstrap-vvveb.css\" rel=\"stylesheet\">
+        <link href=\"{$CFG->wwwroot}/local/kdashboard/_editor/libs/aos/aos.css\" rel=\"stylesheet\">
+        <link href=\"{$CFG->wwwroot}/local/kdashboard/_editor/libs/aos/aos.js\" rel=\"stylesheet\">
     </head>
     <body>
         {$html}

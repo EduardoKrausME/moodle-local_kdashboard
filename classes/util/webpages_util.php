@@ -53,7 +53,7 @@ class webpages_util {
         $PAGE->set_title(get_string("error"));
         $PAGE->set_heading(get_string("error"));
 
-        $PAGE->navbar->add(get_string_kopere("webpages_allpages"), new moodle_url("/local/kopere_dashboard/"));
+        $PAGE->navbar->add(get_string_kopere("webpages_allpages"), new moodle_url("/local/kdashboard/"));
         $PAGE->navbar->add(get_string("error"));
 
         echo $OUTPUT->header();
@@ -61,7 +61,7 @@ class webpages_util {
         echo "<div class='element-box text-center page404'>
                   <h2>" . get_string("error") . "</h2>
                   <div>" . get_string_kopere($printtext) . "</div>
-                  <p><a href='{$CFG->wwwroot}/local/kopere_dashboard/'>" . get_string_kopere("webpages_allpages") . "</a></p>
+                  <p><a href='{$CFG->wwwroot}/local/kdashboard/'>" . get_string_kopere("webpages_allpages") . "</a></p>
               </div>";
 
         echo $OUTPUT->footer();

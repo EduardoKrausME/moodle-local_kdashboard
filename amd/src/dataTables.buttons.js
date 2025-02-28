@@ -2297,7 +2297,7 @@
                 .html(title)
                 .append($('<div/>')[typeof message === 'string' ? 'html' : 'append'](message))
                 .css('display', 'none')
-                .appendTo('.kopere_dashboard_div')
+                .appendTo('.kdashboard_div')
         );
 
         if (time !== undefined && time !== 0) {

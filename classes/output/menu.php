@@ -47,7 +47,7 @@ class menu {
     public static function create_menu() {
         global $DB, $CFG;
 
-        $isadmin = has_capability("local/kopere_dashboard:manage", \context_system::instance());
+        $isadmin = has_capability("local/kdashboard:manage", \context_system::instance());
 
         echo "<ul class='kopere-main-menu block_tree list menu-kopere'>";
 
@@ -97,15 +97,6 @@ class menu {
             }
         }
 
-        echo dashboard_util::add_menu(
-            (new menu_util())
-                ->set_classname("reports")
-                ->set_methodname("dashboard")
-                ->set_icon("report")
-                ->set_name(get_string_kopere("reports_title"))
-                ->set_submenus(reports::global_menus())
-        );
-
         if ($isadmin) {
 
             echo dashboard_util::add_menu(
@@ -113,19 +104,7 @@ class menu {
                     ->set_classname("notifications")
                     ->set_methodname("dashboard")
                     ->set_icon("notifications")
-                    ->set_name(get_string_kopere("notification_title"))
-                    ->set_submenus([
-                        (new submenu_util())
-                            ->set_classname("notifications")
-                            ->set_methodname("dashboard")
-                            ->set_title(get_string_kopere("notification_title"))
-                            ->set_icon("notifications"),
-                        (new submenu_util())
-                            ->set_classname("notificationsend")
-                            ->set_methodname("create")
-                            ->set_title(get_string_kopere("notificationsend_title"))
-                            ->set_icon("send"),
-                    ]));
+                    ->set_name(get_string_kopere("notification_title")));
 
             echo dashboard_util::add_menu(
                 (new menu_util())

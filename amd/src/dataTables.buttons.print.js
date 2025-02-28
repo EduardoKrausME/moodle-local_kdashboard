@@ -182,7 +182,7 @@
                 html +
                 '<div>' + (exportInfo.messageBottom || '') + '</div>';
 
-            $(win.document.body).addClass('dt-print-view kopere_dashboard_div');
+            $(win.document.body).addClass('dt-print-view kdashboard_div');
 
             $('img', win.document.body).each(function(i, img) {
                 img.setAttribute('src', _relToAbs(img.getAttribute('src')));

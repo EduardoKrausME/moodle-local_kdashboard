@@ -101,7 +101,7 @@ require_capability("moodle/site:config", context_system::instance());
             <?php
             $pagePreview = false;
             if ($page == "webpages") {
-                $pagePreview = "{$CFG->wwwroot}/local/kopere_dashboard/";
+                $pagePreview = "{$CFG->wwwroot}/local/kdashboard/";
             }
             if ($pagePreview) { ?>
             <form class="form-preview" method="post" target="editor-preview"

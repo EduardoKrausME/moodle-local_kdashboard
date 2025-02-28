@@ -28,8 +28,8 @@ require_once("../../config.php");
 
 require_login();
 $context = context_system::instance();
-require_capability("local/kopere_dashboard:view", $context);
-require_capability("local/kopere_dashboard:manage", $context);
+require_capability("local/kdashboard:view", $context);
+require_capability("local/kdashboard:manage", $context);
 
 $type = required_param("type", PARAM_TEXT);
 $id = required_param("id", PARAM_TEXT);

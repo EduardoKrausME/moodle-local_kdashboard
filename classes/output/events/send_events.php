@@ -216,7 +216,7 @@ class send_events {
                 $eventdata->modulename = "moodle";
             }
             $eventdata->component = "local_kdashboard";
-            $eventdata->name = "kopere_dashboard_messages";
+            $eventdata->name = "kdashboard_messages";
             $eventdata->userfrom = $userfrom;
             $eventdata->userto = $userto;
             $eventdata->subject = $sendsubject;

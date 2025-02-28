@@ -25,13 +25,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $functions = [
-    "kopere_dashboard_performancemonitor_disk_moodledata" => [
+    "kdashboard_performancemonitor_disk_moodledata" => [
         "classname" => "\\local_kdashboard\\external\\performancemonitor",
         "methodname" => "disk_moodledata",
-        "classpath" => 'local/kopere_dashboard/classes/external/performancemonitor.php',
+        "classpath" => 'local/kdashboard/classes/external/performancemonitor.php',
         "description" => "Disk Moodledata",
         "type" => "read",
         "ajax" => true,
-        "capabilities" => "local/kopere_dashboard:view",
+        "capabilities" => "local/kdashboard:view",
     ],
 ];

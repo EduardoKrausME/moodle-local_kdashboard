@@ -7,7 +7,7 @@ define(["jquery"], function($) {
                     module: $(this).val()
                 };
 
-                var url = M.cfg.wwwroot + "/local/kopere_dashboard/view-ajax.php?classname=notificationsutil&method=add_form_extra";
+                var url = M.cfg.wwwroot + "/local/kdashboard/view-ajax.php?classname=notificationsutil&method=add_form_extra";
                 $('#restante-form').load(url, data);
             });
         },

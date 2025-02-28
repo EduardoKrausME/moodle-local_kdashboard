@@ -46,18 +46,18 @@ class about {
         dashboard_util::start_page();
 
         echo '<div class="element-box">
-                  <p><img src="https://www.eduardokraus.com/logos/kopere_dashboard.svg" style="max-width: 100%" /></p>
+                  <p><img src="https://www.eduardokraus.com/logos/kdashboard.svg" style="max-width: 100%" /></p>
                   <p>&nbsp;</p>
                   <p>' . get_string_kopere("about_project") . '
                      <a target="_blank" href="https://www.eduardokraus.com/kopere-dashboard">Eduardo Kraus</a>.</p>
                   <p>' . get_string_kopere("about_code") . '
-                     <a target="_blank" href="https://github.com/EduardoKrausME/moodle-local-kopere_dashboard"
-                     >github.com/EduardoKrausME/moodle-local-kopere_dashboard</a>.</p>
+                     <a target="_blank" href="https://github.com/EduardoKrausME/moodle-local-kdashboard"
+                     >github.com/EduardoKrausME/moodle-local-kdashboard</a>.</p>
                   <p>' . get_string_kopere("about_help") . '
-                     <a target="_blank" href="https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/wiki"
+                     <a target="_blank" href="https://github.com/EduardoKrausME/moodle-local-kdashboard/wiki"
                      >Wiki</a>.</p>
                   <p>' . get_string_kopere("about_bug") . '
-                     <a href="https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/issues"
+                     <a href="https://github.com/EduardoKrausME/moodle-local-kdashboard/issues"
                         target="_blank">issue</a>.</p>
               </div>';
 

@@ -218,25 +218,4 @@ class notificationsutil {
 
         return null;
     }
-
-    /**
-     * Function message_no_smtp
-     *
-     * @throws \coding_exception
-     * @throws \dml_exception
-     */
-    public static function message_no_smtp() {
-        global $CFG;
-        if (strlen(get_config("moodle", "smtphosts")) > 5) {
-            return;
-        }
-
-        if (release::version() < 3.2) {
-            $CFG->mail = "messagesettingemail";
-            message::print_danger(get_string_kopere("notification_error_smtp", $CFG));
-        } else {
-            $CFG->mail = "outgoingmailconfig";
-            message::print_danger(get_string_kopere("notification_error_smtp", $CFG));
-        }
-    }
 }

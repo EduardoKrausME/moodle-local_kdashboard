@@ -25,11 +25,11 @@ define(["jquery", "jqueryui"], function($, $ui) {
                             var srcclose = menu.attr("src-close");
                             menu.attr("src", srcclose);
                             $("#menuid-" + menuid).remove();
-                            var img = "<img src='" + M.cfg.wwwroot + "/local/kopere_dashboard/assets/dashboard/img/loading2.svg' " +
+                            var img = "<img src='" + M.cfg.wwwroot + "/local/kdashboard/assets/dashboard/img/loading2.svg' " +
                                 "           style='height:21px;'>";
                             menu.parent().parent().after("<tr id='menuid-" + menuid + "'><td colspan='4'>" + img + "</td></tr>");
 
-                            var url = M.cfg.wwwroot + "/local/kopere_dashboard/view-ajax.php?classname=webpages&method=menu_get_itens";
+                            var url = M.cfg.wwwroot + "/local/kdashboard/view-ajax.php?classname=webpages&method=menu_get_itens";
                             $.post(
                                 url, {
                                     menuid: menuid
@@ -47,7 +47,7 @@ define(["jquery", "jqueryui"], function($, $ui) {
 
         webpages_page_ajax_get_url: function() {
             $('#title').focusout(function() {
-                var url = M.cfg.wwwroot + "/local/kopere_dashboard/view-ajax.php?classname=webpages&method=page_ajax_get_url";
+                var url = M.cfg.wwwroot + "/local/kdashboard/view-ajax.php?classname=webpages&method=page_ajax_get_url";
                 var postData = {
                     title: $(this).val(),
                     id: $('#id').val()
@@ -61,7 +61,7 @@ define(["jquery", "jqueryui"], function($, $ui) {
 
         webpages_menu_ajax_get_url: function() {
             $('#title').focusout(function() {
-                var url = M.cfg.wwwroot + "/local/kopere_dashboard/view-ajax.php?classname=webpages&method=menu_ajax_get_url";
+                var url = M.cfg.wwwroot + "/local/kdashboard/view-ajax.php?classname=webpages&method=menu_ajax_get_url";
                 var postData = {
                     title: $(this).val(),
                     id: $('#id').val()
@@ -73,7 +73,7 @@ define(["jquery", "jqueryui"], function($, $ui) {
         },
 
         view_page: function() {
-            $.getScript(M.cfg.wwwroot + "/local/kopere_dashboard/amd/build/bootstrap.min.js");
+            $.getScript(M.cfg.wwwroot + "/local/kdashboard/amd/build/bootstrap.min.js");
 
             $(".jquery-ui-tabs").tabs();
             $(".jquery-ui-accordion").accordion({

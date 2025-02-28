@@ -1,8 +1,8 @@
-# Plugin local kopere_dashboard
+# Plugin local kdashboard
 
-[![Build Status](https://travis-ci.org/EduardoKrausME/moodle-local-kopere_dashboard.svg?branch=master)](https://travis-ci.org/EduardoKrausME/moodle-local-kopere_dashboard)
+[![Build Status](https://travis-ci.org/EduardoKrausME/moodle-local-kdashboard.svg?branch=master)](https://travis-ci.org/EduardoKrausME/moodle-local-kdashboard)
 
-![Imagem 1](https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/blob/master/pix/prints/dashboard/Captura_01.png)
+![Imagem 1](https://github.com/EduardoKrausME/moodle-local-kdashboard/blob/master/pix/prints/dashboard/Captura_01.png)
 
 ## instalando
 
@@ -11,20 +11,20 @@
 Vá na pasta [pasta_instalacao_moodle]/local e execute:
 
 ```
-git clone https://github.com/EduardoKrausME/moodle-local-kopere_dashboard kopere_dashboard
+git clone https://github.com/EduardoKrausME/moodle-local-kdashboard kdashboard
 ```
 
 Após vá em _Administração do site_ >> _Avisos_ e instale o Kopere Dashboard
 
 #### Via instalador de plugins do Moodle
 
-Baixe o arquivo kopere_dashboard.zip em https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/releases/latest e envie ele no instalador de plugins do Moodle
+Baixe o arquivo kdashboard.zip em https://github.com/EduardoKrausME/moodle-local-kdashboard/releases/latest e envie ele no instalador de plugins do Moodle
 
 Após vá em _Administração do site_ >> _Avisos_ e instale o Kopere Dashboard
 
 #### Por FTP
 
-Baixe o arquivo kopere_dashboard.zip em https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/releases/latest descompacte e envie todos os arquivos baixados para a pasta ``[pasta_instalacao_moodle]/local/``
+Baixe o arquivo kdashboard.zip em https://github.com/EduardoKrausME/moodle-local-kdashboard/releases/latest descompacte e envie todos os arquivos baixados para a pasta ``[pasta_instalacao_moodle]/local/``
 
 Após vá em _Administração do site_ >> _Avisos_ e instale o Kopere Dashboard
 
@@ -34,14 +34,14 @@ Benchmark é o ato de executar um conjunto de operações, a fim de avaliar o de
 
 Esta parte é uma melhoria do plugin [report_benchmark](https://moodle.org/plugins/report_benchmark)
 
-![BenchMark teste](https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/blob/master/pix/prints/benchmark/Captura_01.png)
+![BenchMark teste](https://github.com/EduardoKrausME/moodle-local-kdashboard/blob/master/pix/prints/benchmark/Captura_01.png)
 
-[Clique aqui e veja mais sobre Performace](https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/wiki/Performace)
+[Clique aqui e veja mais sobre Performace](https://github.com/EduardoKrausME/moodle-local-kdashboard/wiki/Performace)
 
 ## Páginas estáticas
 
 Páginas estáticas são páginas que você pode criar para as mais diversas finalidades. Pode, por exemplo, criar um FAQ com as principais informações para os alunos ou para quem acessa seu moodle não sendo aluno.
 
-![Imagem 1](https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/blob/master/pix/prints/webpages/Captura_01.png)
+![Imagem 1](https://github.com/EduardoKrausME/moodle-local-kdashboard/blob/master/pix/prints/webpages/Captura_01.png)
 
-[Clique aqui e veja mais sobre págnas estáticas](https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/wiki/Páginas-estáticas)
+[Clique aqui e veja mais sobre págnas estáticas](https://github.com/EduardoKrausME/moodle-local-kdashboard/wiki/Páginas-estáticas)

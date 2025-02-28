@@ -35,15 +35,15 @@ ob_clean();
 try {
     require_login();
     $context = context_system::instance();
-    require_capability("local/kopere_dashboard:view", $context);
-    require_capability("local/kopere_dashboard:manage", $context);
+    require_capability("local/kdashboard:view", $context);
+    require_capability("local/kdashboard:manage", $context);
 } catch (Exception $e) {
     \local_kdashboard\util\json::error($e->getMessage());
 }
 
-$PAGE->set_url(new moodle_url("/local/kopere_dashboard/view-ajax.php"));
+$PAGE->set_url(new moodle_url("/local/kdashboard/view-ajax.php"));
 $PAGE->set_pagetype("reports");
 $PAGE->set_context(context_system::instance());
 
 session_write_close();
-kopere_dashboard_load_class();
+kdashboard_load_class();

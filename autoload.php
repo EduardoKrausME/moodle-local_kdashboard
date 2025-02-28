@@ -34,13 +34,13 @@ if ($debug) {
     $DB->set_debug(true);
 }
 
-spl_autoload_register("kopere_dashboard_autoload");
+spl_autoload_register("kdashboard_autoload");
 /**
- * Function kopere_dashboard_autoload
+ * Function kdashboard_autoload
  *
  * @param $classname
  */
-function kopere_dashboard_autoload($classname) {
+function kdashboard_autoload($classname) {
     global $CFG;
 
     if (strpos($classname, "kopere") === false) {
@@ -58,11 +58,11 @@ function kopere_dashboard_autoload($classname) {
 }
 
 /**
- * Function kopere_dashboard_load_class
+ * Function kdashboard_load_class
  *
  * @throws coding_exception
  */
-function kopere_dashboard_load_class() {
+function kdashboard_load_class() {
     $classname = optional_param("classname", false, PARAM_TEXT);
     $method = optional_param("method", "", PARAM_TEXT);
     if (!$classname) {

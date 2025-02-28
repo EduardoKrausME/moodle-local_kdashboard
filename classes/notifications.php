@@ -60,8 +60,6 @@ class notifications extends notificationsutil {
         dashboard_util::add_breadcrumb(get_string_kopere("notification_title"));
         dashboard_util::start_page();
 
-        notificationsutil::message_no_smtp();
-
         echo '<div class="element-box">';
 
         echo get_string_kopere("notification_subtitle");
@@ -287,7 +285,7 @@ class notifications extends notificationsutil {
             ->to_string();
         $templatecontent = config::get_key("notification-template");
 
-        $href = "{$CFG->wwwroot}/local/kopere_dashboard/_editor/?page=settings&id=notification-template";
+        $href = "{$CFG->wwwroot}/local/kdashboard/_editor/?page=settings&id=notification-template";
         $edittemplate = "<a href='{$href}' class='btn btn-info mt-2'>" .
             get_string_kopere("notification_message_edit_template") .
             "</a>";
@@ -412,7 +410,6 @@ class notifications extends notificationsutil {
             message::print_danger("Você precisa ativar o Modo desenvolvedor e Mostrar as mensagens de debug");
         }
 
-        notificationsutil::message_no_smtp();
         $CFG->debugsmtp = true;
 
         $htmlmessage = get_string_kopere("notification_testsmtp_message") . date("d/m/Y H:i");
@@ -423,7 +420,7 @@ class notifications extends notificationsutil {
             $eventdata->modulename = "moodle";
         }
         $eventdata->component = "local_kdashboard";
-        $eventdata->name = "kopere_dashboard_messages";
+        $eventdata->name = "kdashboard_messages";
         $eventdata->userfrom = get_admin();
         $eventdata->userto = $USER;
         $eventdata->subject = get_string_kopere("notification_testsmtp_subject") . date("d/m/Y H:i");

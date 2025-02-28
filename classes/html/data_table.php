@@ -348,7 +348,7 @@ class data_table {
                         }
                     } else if ($column->type == table_header_item::RENDERER_USERPHOTO) {
                         $html = '<img class="media-object" src="' . $CFG->wwwroot .
-                            '/local/kopere_dashboard/profile-image.php?type=photo_user&id=' . $html . '" />';
+                            '/local/kdashboard/profile-image.php?type=photo_user&id=' . $html . '" />';
                     } else if ($column->type == table_header_item::RENDERER_SECONDS) {// phpcs:disable
                         // $this->columndefs[] = (object)["render" => "secondsRenderer", "targets" => $key];
                     } else if ($column->type == table_header_item::RENDERER_TIME) {// phpcs:disable

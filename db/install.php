@@ -51,11 +51,7 @@ function xmldb_local_kdashboard_install() {
     $html = file_get_contents(__DIR__ . "/notification-template.html");
     set_config("notification-template", $html, "local_kdashboard");
 
+    \local_kdashboard\install\event_install::install_or_update();
+
     return true;
 }
-
-\local_kdashboard\install\report_install::create_categores();
-\local_kdashboard\install\report_install::create_reports();
-
-\local_kdashboard\install\users_import_install::install_or_update();
-

@@ -48,14 +48,14 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
     require_once(__DIR__ . "/locallib.php");
 
     $CFG->custommenuitems = trim($CFG->custommenuitems);
-    $CFG->custommenuitems = preg_replace('/.*kopere_dashboard.*/', "", $CFG->custommenuitems);
+    $CFG->custommenuitems = preg_replace('/.*kdashboard.*/', "", $CFG->custommenuitems);
     $CFG->custommenuitems = trim($CFG->custommenuitems);
 
     if (isloggedin()) {
         if ($CFG->branch > 400 && @get_config("local_kdashboard", "menu")) {
             $context = context_system::instance();
-            $hascapability = has_capability("local/kopere_dashboard:view", $context) ||
-                has_capability("local/kopere_dashboard:manage", $context);
+            $hascapability = has_capability("local/kdashboard:view", $context) ||
+                has_capability("local/kdashboard:manage", $context);
 
             if ($hascapability) {
                 $name = get_string("modulename", "local_kdashboard");
@@ -68,15 +68,15 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
             }
         } else {
             $context = context_system::instance();
-            if (has_capability("local/kopere_dashboard:view", $context) ||
-                has_capability("local/kopere_dashboard:manage", $context)) {
+            if (has_capability("local/kdashboard:view", $context) ||
+                has_capability("local/kdashboard:manage", $context)) {
 
                 $node = $nav->add(
                     get_string("pluginname", "local_kdashboard"),
                     new moodle_url(local_kdashboard_makeurl("dashboard", "start")),
                     navigation_node::TYPE_CUSTOM,
                     null,
-                    "kopere_dashboard",
+                    "kdashboard",
                     new pix_icon("icon", get_string("pluginname", "local_kdashboard"), "local_kdashboard")
                 );
 
@@ -133,11 +133,11 @@ function local_kdashboard_extend_navigation__get_menus($menuid, $prefix) {
     foreach ($menus as $menu) {
         $where = ["visible" => 1, "menuid" => $menu->id];
         $webpages = $DB->get_records("local_kdashboard_pages", $where, "pageorder ASC");
-        $CFG->extramenu .= "{$prefix} {$menu->title}|{$CFG->wwwroot}/local/kopere_dashboard/?menu={$menu->link}\n";
+        $CFG->extramenu .= "{$prefix} {$menu->title}|{$CFG->wwwroot}/local/kdashboard/?menu={$menu->link}\n";
         if ($webpages) {
             /** @var \local_kdashboard\vo\local_kdashboard_pages $webpage */
             foreach ($webpages as $webpage) {
-                $link = "{$CFG->wwwroot}/local/kopere_dashboard/?p={$webpage->link}";
+                $link = "{$CFG->wwwroot}/local/kdashboard/?p={$webpage->link}";
                 $CFG->extramenu .= "{$prefix}- {$webpage->title}|{$link}\n";
             }
         }

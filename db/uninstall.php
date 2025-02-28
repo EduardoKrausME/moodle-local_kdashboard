@@ -28,6 +28,6 @@
  */
 function xmldb_local_kdashboard_uninstall() {
     global $CFG;
-    $CFG->custommenuitems = preg_replace("/.*kopere_dashboard.*/", "", $CFG->custommenuitems);
+    $CFG->custommenuitems = preg_replace("/.*kdashboard.*/", "", $CFG->custommenuitems);
     set_config("custommenuitems", $CFG->custommenuitems);
 }

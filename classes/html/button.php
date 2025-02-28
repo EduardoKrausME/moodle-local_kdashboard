@@ -364,9 +364,9 @@ class button {
             $text = get_string_kopere("help_title");
         }
 
-        return "<a href='https://github.com/EduardoKrausME/moodle-local-kopere_dashboard/wiki/{$infourl}#{$hastag}'
+        return "<a href='https://github.com/EduardoKrausME/moodle-local-kdashboard/wiki/{$infourl}#{$hastag}'
                    target=\"_blank\" class=\"help\">
-                  <img src='{$CFG->wwwroot}/local/kopere_dashboard/assets/dashboard/img/help.svg' style='height: 30px' >
+                  <img src='{$CFG->wwwroot}/local/kdashboard/assets/dashboard/img/help.svg' style='height: 30px' >
                   $text
               </a>";
     }
@@ -382,7 +382,7 @@ class button {
     public static function icon($icon, $link) {
         global $CFG;
         return "<a href='{$link}'>
-                    <img src='{$CFG->wwwroot}/local/kopere_dashboard/assets/dashboard/img/actions/{$icon}.svg' width=\"19\">
+                    <img src='{$CFG->wwwroot}/local/kdashboard/assets/dashboard/img/actions/{$icon}.svg' width=\"19\">
                 </a>";
     }
 
@@ -423,7 +423,7 @@ class button {
         global $CFG;
         return
             "<a href='{$link}'>" .
-            "    <img src='{$CFG->wwwroot}/local/kopere_dashboard/assets/dashboard/img/actions/{$icon}.svg'" .
+            "    <img src='{$CFG->wwwroot}/local/kdashboard/assets/dashboard/img/actions/{$icon}.svg'" .
             "         width=\"19\" role=\"button\">" .
             "</a>";
     }

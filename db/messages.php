@@ -25,5 +25,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 $messageproviders = [
-    "kopere_dashboard_messages" => [],
+    "kdashboard_messages" => [],
 ];

@@ -26,7 +26,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$settings = new admin_settingpage("kopere_dashboard", get_string("pluginname", "local_kdashboard"));
+$settings = new admin_settingpage("kdashboard", get_string("pluginname", "local_kdashboard"));
 $ADMIN->add("localplugins", $settings);
 
 if ($hassiteconfig) {
@@ -38,7 +38,7 @@ if ($hassiteconfig) {
         new admin_externalpage(
             "local_kdashboard",
             get_string("modulename", "local_kdashboard"),
-            "{$CFG->wwwroot}/local/kopere_dashboard/view.php?classname=dashboard&method=start"
+            "{$CFG->wwwroot}/local/kdashboard/view.php?classname=dashboard&method=start"
         )
     );
 }
@@ -48,31 +48,31 @@ if ($ADMIN->fulltree) {
     if (method_exists($settings, "add")) {
 
         $setting = new admin_setting_configcheckbox("local_kdashboard/menu",
-            get_string("kopere_dashboard_menu", "local_kdashboard"),
-            get_string("kopere_dashboard_menu_desc", "local_kdashboard"), 1
+            get_string("kdashboard_menu", "local_kdashboard"),
+            get_string("kdashboard_menu_desc", "local_kdashboard"), 1
         );
         $setting->set_updatedcallback("theme_reset_all_caches");
         $settings->add($setting);
 
         $setting = new admin_setting_configcheckbox("local_kdashboard/menuwebpages",
-            get_string("kopere_dashboard_menuwebpages", "local_kdashboard"),
-            get_string("kopere_dashboard_menuwebpages_desc", "local_kdashboard"), 1
+            get_string("kdashboard_menuwebpages", "local_kdashboard"),
+            get_string("kdashboard_menuwebpages_desc", "local_kdashboard"), 1
         );
         $setting->set_updatedcallback("theme_reset_all_caches");
         $settings->add($setting);
 
         $settings->add(
             new admin_setting_configcheckbox("local_kdashboard/monitor",
-                get_string("kopere_dashboard_monitor", "local_kdashboard"),
-                get_string("kopere_dashboard_monitor_desc", "local_kdashboard"),
+                get_string("kdashboard_monitor", "local_kdashboard"),
+                get_string("kdashboard_monitor_desc", "local_kdashboard"),
                 0
             ));
 
         $icon = $OUTPUT->image_url("google-fonts", "local_kdashboard")->out(false);
         $settings->add(
-            new admin_setting_configtextarea("kopere_dashboard_pagefonts",
-                get_string("kopere_dashboard_pagefonts", "local_kdashboard"),
-                get_string("kopere_dashboard_pagefonts_desc", "local_kdashboard", $icon), ""
+            new admin_setting_configtextarea("kdashboard_pagefonts",
+                get_string("kdashboard_pagefonts", "local_kdashboard"),
+                get_string("kdashboard_pagefonts_desc", "local_kdashboard", $icon), ""
             ));
 
         $plugins = glob(__DIR__ . "/../*/settings_kopere.php");

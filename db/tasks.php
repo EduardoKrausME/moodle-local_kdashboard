@@ -34,23 +34,5 @@ $tasks = [
         "dayofweek" => "*",
         "month" => "*",
     ],
-    [
-        "classname" => "\\local_kdashboard\\task\\db_report_login",
-        "blocking" => 1,
-        "minute" => "0",
-        "hour" => "0",
-        "day" => "*",
-        "dayofweek" => "*",
-        "month" => "*",
-    ],
-    [
-        "classname" => "\\local_kdashboard\\task\\db_course_access",
-        "blocking" => 1,
-        "minute" => "0",
-        "hour" => "0",
-        "day" => "*",
-        "dayofweek" => "*",
-        "month" => "*",
-    ],
 ];
 

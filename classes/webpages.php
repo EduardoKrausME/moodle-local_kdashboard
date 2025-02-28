@@ -98,7 +98,7 @@ class webpages {
                         &nbsp;&nbsp;&nbsp;
                         {$bt2}
                     </div>";
-                $menu->link = "<a href='{$CFG->wwwroot}/local/kopere_dashboard/?menu={$menu->link}'
+                $menu->link = "<a href='{$CFG->wwwroot}/local/kdashboard/?menu={$menu->link}'
                                   target=\"_blank\">{$menu->link}</a>";
                 $menu->visible = get_string("yes");
 
@@ -165,7 +165,7 @@ class webpages {
                     &nbsp;&nbsp;&nbsp;
                     {$bt2}
                 </div>";
-            $menu->link = "<a href='{$CFG->wwwroot}/local/kopere_dashboard/?menu={$menu->link}'
+            $menu->link = "<a href='{$CFG->wwwroot}/local/kdashboard/?menu={$menu->link}'
                               target=\"_blank\">{$menu->link}</a>";
             $menu->visible = get_string("yes");
 
@@ -188,7 +188,7 @@ class webpages {
                 </div>";
 
             $page->menu = $DB->get_field("local_kdashboard_menu", "title", ["id" => $page->menuid]);
-            $page->link = "<a href='{$CFG->wwwroot}/local/kopere_dashboard/?p={$page->link}'
+            $page->link = "<a href='{$CFG->wwwroot}/local/kdashboard/?p={$page->link}'
                               target=\"_blank\">{$page->link}</a>";
             $page->visible = $page->visible ? get_string("yes") : get_string("no");
 
@@ -230,7 +230,7 @@ class webpages {
         dashboard_util::start_page();
         echo '<div class="element-box">';
 
-        $linkpagina = "{$CFG->wwwroot}/local/kopere_dashboard/?p={$webpages->link}";
+        $linkpagina = "{$CFG->wwwroot}/local/kdashboard/?p={$webpages->link}";
 
         button::info(get_string_kopere("webpages_page_view"), $linkpagina, "", false);
         button::edit(get_string_kopere("webpages_page_edit"),
@@ -265,7 +265,7 @@ class webpages {
                              style='max-width:300px;max-height:300px;'></a></p>";
         }
 
-        $href = "{$CFG->wwwroot}/local/kopere_dashboard/_editor/?page=webpages&id={$webpages->id}&link={$webpages->link}";
+        $href = "{$CFG->wwwroot}/local/kdashboard/_editor/?page=webpages&id={$webpages->id}&link={$webpages->link}";
         $text = get_string_kopere("webpages_table_text_edit");
         $link = "<a class='btn btn-info' target=\"editor\" href='{$href}'>{$text}</a>";
 
@@ -374,7 +374,7 @@ class webpages {
             $text = message::info(get_string_kopere("webpages_table_text_not"));
             $form->print_row(get_string_kopere("webpages_table_text"), $text);
         } else {
-            $href = "{$CFG->wwwroot}/local/kopere_dashboard/_editor/?page=webpages&id={$webpages->id}&link={$webpages->link}";
+            $href = "{$CFG->wwwroot}/local/kdashboard/_editor/?page=webpages&id={$webpages->id}&link={$webpages->link}";
             $text = get_string_kopere("webpages_table_text_edit");
             $link = "<a class='btn btn-info' target=\"editor\" href='{$href}'>{$text}</a>";
             $form->print_row(get_string_kopere("webpages_table_text"), $link);

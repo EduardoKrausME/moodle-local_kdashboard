@@ -41,13 +41,13 @@ function local_kdashboard_makeurl($classname, $method, $params = [], $file = "vi
     }
 
     global $CFG;
-    return "{$CFG->wwwroot}/local/kopere_dashboard/{$file}.php?{$query}";
+    return "{$CFG->wwwroot}/local/kdashboard/{$file}.php?{$query}";
 }
 
 /**
- * Function get_kopere_lang
+ * Function kdashboard_lang
  */
-function get_kopere_lang() {
+function kdashboard_lang() {
 
     global $PAGE;
 

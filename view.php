@@ -38,8 +38,8 @@ require_once("{$CFG->libdir}/adminlib.php");
 
 require_login();
 $context = context_system::instance();
-require_capability("local/kopere_dashboard:view", $context);
-require_capability("local/kopere_dashboard:manage", $context);
+require_capability("local/kdashboard:view", $context);
+require_capability("local/kdashboard:manage", $context);
 
 if ($html = optional_param("html-pdf", false, PARAM_RAW)) {
     require_once($CFG->libdir . "/tcpdf/tcpdf.php");
@@ -107,7 +107,7 @@ if ($CFG->theme == "smartlms") {
     @$USER->preference["sidebar-open-nav"] = false;
 }
 
-$PAGE->set_url(new moodle_url("/local/kopere_dashboard/view.php?{$_SERVER["QUERY_STRING"]}"));
+$PAGE->set_url(new moodle_url("/local/kdashboard/view.php?{$_SERVER["QUERY_STRING"]}"));
 $PAGE->set_context($context);
 $PAGE->set_pagetype("admin-setting");
 $PAGE->set_pagelayout("admin");
@@ -118,6 +118,6 @@ $PAGE->requires->jquery_plugin("ui-css");
 
 $PAGE->requires->js_call_amd("local_kdashboard/start_load", "init");
 
-get_kopere_lang();
+kdashboard_lang();
 
-kopere_dashboard_load_class();
+kdashboard_load_class();
