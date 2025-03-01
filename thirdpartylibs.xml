@@ -56,4 +56,10 @@
         <version>1.15.0</version>
         <license>MIT license</license>
     </library>
+    <library>
+        <location>assets/dropzone</location>
+        <name>Dropzone</name>
+        <version>4.1.0</version>
+        <license>MIT license</license>
+    </library>
 </libraries>
