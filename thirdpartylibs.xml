@@ -34,7 +34,9 @@
         <location>amd/src/iosCheckbox.js</location>
         <name>iosCheckbox.js</name>
         <version>1.0.0</version>
-        <license>Ron Masas</license>
+        <author>Ron Masas</author>
+        <license>undefined</license>
+        <url>https://github.com/masasron/iosCheckbox.js</url>
     </library>
     <library>
         <location>amd/src/jszip.js</location>
