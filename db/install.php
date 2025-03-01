@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
  * Function xmldb_local_kdashboard_install
  *
  * @return bool
- *             
+ *
  * @throws coding_exception
  * @throws dml_exception
  */
