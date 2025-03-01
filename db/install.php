@@ -28,11 +28,11 @@ defined('MOODLE_INTERNAL') || die();
  * Function xmldb_local_kdashboard_install
  *
  * @return bool
+ *             
+ * @throws coding_exception
+ * @throws dml_exception
  */
 function xmldb_local_kdashboard_install() {
-    set_config("enablegravatar", 1);
-    set_config("gravatardefaulturl", "mm");
-
     set_config("webpages_theme", "standard", "local_kdashboard");
 
     $fonts = "<style>\n@import url('https://fonts.googleapis.com/css2?family=Acme" .
