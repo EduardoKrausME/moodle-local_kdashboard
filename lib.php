@@ -64,7 +64,7 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
                     "moremenu", [$name, $link]);
             }
             if (@get_config("local_kdashboard", "menuwebpages")) {
-                kdashboard_add_pages_custommenuitems_400();
+                local_kdashboard_add_pages_custommenuitems_400();
             }
         } else {
             $context = context_system::instance();
@@ -85,15 +85,15 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
         }
     } else {
         if ($CFG->branch > 400 && @get_config("local_kdashboard", "menu")) {
-            kdashboard_add_pages_custommenuitems_400();
+            local_kdashboard_add_pages_custommenuitems_400();
         }
     }
 }
 
 /**
- * Function kdashboard_add_pages_custommenuitems_400
+ * Function local_kdashboard_add_pages_custommenuitems_400
  */
-function kdashboard_add_pages_custommenuitems_400() {
+function local_kdashboard_add_pages_custommenuitems_400() {
     global $CFG;
 
     $cache = \cache::make("local_kdashboard", "report_getdata_cache");

@@ -45,9 +45,9 @@ function local_kdashboard_makeurl($classname, $method, $params = [], $file = "vi
 }
 
 /**
- * Function kdashboard_lang
+ * Function local_kdashboard_lang
  */
-function kdashboard_lang() {
+function local_kdashboard_lang() {
 
     global $PAGE;
 

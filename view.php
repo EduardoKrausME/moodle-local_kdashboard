@@ -118,6 +118,6 @@ $PAGE->requires->jquery_plugin("ui-css");
 
 $PAGE->requires->js_call_amd("local_kdashboard/start_load", "init");
 
-kdashboard_lang();
+local_kdashboard_lang();
 
 kdashboard_load_class();
