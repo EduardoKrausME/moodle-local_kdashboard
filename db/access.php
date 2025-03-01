@@ -25,6 +25,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
+    "local/kdashboard:ajax" => [
+        "captype" => "read",
+        "contextlevel" => CONTEXT_SYSTEM,
+        "archetypes" => [
+            "manager" => CAP_ALLOW,
+        ],
+    ],
     "local/kdashboard:view" => [
         "captype" => "write",
         "contextlevel" => CONTEXT_SYSTEM,

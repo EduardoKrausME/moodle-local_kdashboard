@@ -32,6 +32,6 @@ $functions = [
         "description" => "Disk Moodledata",
         "type" => "read",
         "ajax" => true,
-        "capabilities" => "local/kdashboard:view",
+        "capabilities" => "local/kdashboard:ajax",
     ],
 ];

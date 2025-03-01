@@ -35,8 +35,7 @@ ob_clean();
 try {
     require_login();
     $context = context_system::instance();
-    require_capability("local/kdashboard:view", $context);
-    require_capability("local/kdashboard:manage", $context);
+    require_capability("local/kdashboard:ajax", $context);
 } catch (Exception $e) {
     \local_kdashboard\util\json::error($e->getMessage());
 }
