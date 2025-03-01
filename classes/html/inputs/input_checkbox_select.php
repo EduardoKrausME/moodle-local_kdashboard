@@ -81,9 +81,9 @@ class input_checkbox_select extends input_select {
         $this->checked = $checked;
 
         if ($this->checked) {
-            $this->set_value(1);
+            $this->set_value(1, PARAM_INT);
         } else {
-            $this->set_value(0);
+            $this->set_value(0, PARAM_INT);
         }
 
         return $this;
