@@ -149,7 +149,7 @@ if ($action) {
             ]);
             break;
         case "oembedProxy":
-            $url = optional_param("url", false, PARAM_TEXT) ?? "";
+            $url = optional_param("url", false, PARAM_RAW) ?? "";
             if (validOembedUrl($url)) {
                 $options = [
                     "http" => [
