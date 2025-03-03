@@ -24,6 +24,58 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+use local_kdashboard\util\url_util;
+
+/**
+ * Function local_kdashboard_lang
+ */
+function local_kdashboard_lang() {
+
+    global $PAGE;
+
+    $PAGE->requires->strings_for_js(["decsep", "thousandssep"], "langconfig");
+    $PAGE->requires->strings_for_js(["yes", "no"], "moodle");
+    $PAGE->requires->strings_for_js([
+        "visible",
+        "invisible",
+        "active",
+        "inactive",
+        "date_renderer_format",
+        "datetime_renderer_format",
+        "datatables_sEmptyTable",
+        "datatables_sInfo",
+        "datatables_sInfoEmpty",
+        "datatables_sInfoFiltered",
+        "datatables_sInfoPostFix",
+        "datatables_sInfoThousands",
+        "datatables_sLengthMenu",
+        "datatables_sLoadingRecords",
+        "datatables_sProcessing",
+        "datatables_sErrorMessage",
+        "datatables_sZeroRecords",
+        "datatables_sSearch",
+        "datatables_buttons_print_text",
+        "datatables_buttons_copy_text",
+        "datatables_buttons_csv_text",
+        "datatables_buttons_copySuccess1",
+        "datatables_buttons_copySuccess_",
+        "datatables_buttons_copyTitle",
+        "datatables_buttons_copyKeys",
+        "datatables_buttons_select_rows_",
+        "datatables_buttons_select_rows1",
+        "datatables_buttons_pageLength_",
+        "datatables_buttons_pageLength_1",
+        "datatables_oPaginate_sNext",
+        "datatables_oPaginate_sPrevious",
+        "datatables_oPaginate_sFirst",
+        "datatables_oPaginate_sLast",
+        "datatables_oAria_sSortAscending",
+        "datatables_oAria_sSortDescending",
+        "datatables_oPaginate_sFirst",
+        "datatables_oPaginate_sLast",
+    ], "local_kdashboard");
+}
+
 /**
  * Function local_kdashboard_extends_navigation
  *
@@ -45,8 +97,6 @@ function local_kdashboard_extends_navigation(global_navigation $nav) {
 function local_kdashboard_extend_navigation(global_navigation $nav) {
     global $CFG, $PAGE;
 
-    require_once(__DIR__ . "/locallib.php");
-
     $CFG->custommenuitems = trim($CFG->custommenuitems);
     $CFG->custommenuitems = preg_replace('/.*kdashboard.*/', "", $CFG->custommenuitems);
     $CFG->custommenuitems = trim($CFG->custommenuitems);
@@ -59,12 +109,12 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
 
             if ($hascapability) {
                 $name = get_string("modulename", "local_kdashboard");
-                $link = local_kdashboard_makeurl("dashboard", "start");
+                $link = url_util::makeurl("dashboard", "start");
                 $PAGE->requires->js_call_amd("local_kdashboard/start_load",
                     "moremenu", [$name, $link]);
             }
             if (@get_config("local_kdashboard", "menuwebpages")) {
-                local_kdashboard_add_pages_custommenuitems_400();
+                local_kdashboard_extend_navigation_400();
             }
         } else {
             $context = context_system::instance();
@@ -73,7 +123,7 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
 
                 $node = $nav->add(
                     get_string("pluginname", "local_kdashboard"),
-                    new moodle_url(local_kdashboard_makeurl("dashboard", "start")),
+                    new moodle_url(url_util::makeurl("dashboard", "start")),
                     navigation_node::TYPE_CUSTOM,
                     null,
                     "kdashboard",
@@ -85,15 +135,15 @@ function local_kdashboard_extend_navigation(global_navigation $nav) {
         }
     } else {
         if ($CFG->branch > 400 && @get_config("local_kdashboard", "menu")) {
-            local_kdashboard_add_pages_custommenuitems_400();
+            local_kdashboard_extend_navigation_400();
         }
     }
 }
 
 /**
- * Function local_kdashboard_add_pages_custommenuitems_400
+ * Function local_kdashboard_extend_navigation_400
  */
-function local_kdashboard_add_pages_custommenuitems_400() {
+function local_kdashboard_extend_navigation_400() {
     global $CFG;
 
     $cache = \cache::make("local_kdashboard", "report_getdata_cache");
@@ -110,6 +160,8 @@ function local_kdashboard_add_pages_custommenuitems_400() {
     }
 
     $CFG->custommenuitems = "{$CFG->custommenuitems}\n{$CFG->extramenu}";
+
+    unset($CFG->extramenu);
 }
 
 /**

@@ -31,6 +31,7 @@ use local_kdashboard\html\table_header_item;
 use local_kdashboard\util\dashboard_util;
 use local_kdashboard\util\datatable_search_util;
 use local_kdashboard\util\header;
+use local_kdashboard\util\url_util;
 
 /**
  * Class users
@@ -60,8 +61,8 @@ class users {
         $table->add_header(get_string_kopere("user_table_celphone"), "phone2");
         $table->add_header(get_string_kopere("user_table_city"), "city");
 
-        $table->set_ajax_url(local_kdashboard_makeurl("users", "load_all_users"));
-        $table->set_click_redirect(local_kdashboard_makeurl("users", "details", ["userid" => "{id}"]), "id");
+        $table->set_ajax_url(url_util::makeurl("users", "load_all_users"));
+        $table->set_click_redirect(url_util::makeurl("users", "details", ["userid" => "{id}"]), "id");
         $table->print_header();
         $table->close(true, ["order" => [[1, "asc"]]]);
 
@@ -111,7 +112,7 @@ class users {
         $user = $DB->get_record("user", ["id" => $userid]);
         header::notfound_null($user, get_string_kopere("profile_notfound"));
 
-        dashboard_util::add_breadcrumb(get_string_kopere("profile_title"), local_kdashboard_makeurl("users", "dashboard"));
+        dashboard_util::add_breadcrumb(get_string_kopere("profile_title"), url_util::makeurl("users", "dashboard"));
         dashboard_util::add_breadcrumb(fullname($user));
         dashboard_util::start_page();
 

@@ -27,6 +27,7 @@
 namespace local_kdashboard;
 
 use local_kdashboard\util\message;
+use local_kdashboard\util\url_util;
 
 /**
  * Class profile
@@ -143,7 +144,7 @@ class profile {
                     get_string_kopere("profile_enrol_active") . "</span>";
             }
 
-            $url = local_kdashboard_makeurl("userenrolment", "mathedit",
+            $url = url_util::makeurl("userenrolment", "mathedit",
                 ["courseid" => $course->id, "ueid" => $enrolment->id], "view");
             $html .=
                 "<li>

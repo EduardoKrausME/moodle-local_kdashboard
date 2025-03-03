@@ -27,6 +27,7 @@
  */
 
 use local_kdashboard\util\config;
+use local_kdashboard\util\url_util;
 
 require_once("../../config.php");
 require_once("autoload.php");
@@ -67,7 +68,7 @@ if ($pagelink) {
     $edit = "";
     $hascapability = has_capability("local/kdashboard:manage", $context);
     if ($hascapability) {
-        $href = local_kdashboard_makeurl("webpages", "page_edit", ["id" => $webpages->id]);
+        $href = url_util::makeurl("webpages", "page_edit", ["id" => $webpages->id]);
         $edittext = get_string_kopere("webpages_page_edit");
         $edit = " - <a href='{$href}' target=\"_blank\" style='text-decoration:underline'>{$edittext}</a>";
     }
@@ -83,7 +84,7 @@ if ($pagelink) {
     echo \local_kdashboard\fonts\font_util::print_only_unique();
     echo $OUTPUT->header();
 
-    preg_match_all('/\[\[(kopere_\w+)::(\w+)(->|-&gt;)(\w+)\((.*?)\)]]/', $webpages->text, $classes);
+    preg_match_all('/\[\[(k\w+)::(\w+)(->|-&gt;)(\w+)\((.*?)\)]]/', $webpages->text, $classes);
 
     foreach ($classes[0] as $key => $replace) {
         $classname = $classes[1][$key];
@@ -102,7 +103,7 @@ if ($pagelink) {
     }
     echo '<div class="container">';
 
-    preg_match_all('/\[\[(kopere_\w+)::(\w+)(->|-&gt;)(\w+)\((.*?)\)]]/', $webpages->text, $classes);
+    preg_match_all('/\[\[(k\w+)::(\w+)(->|-&gt;)(\w+)\((.*?)\)]]/', $webpages->text, $classes);
     foreach ($classes[0] as $key => $replace) {
         $classname = $classes[1][$key];
         $function = $classes[2][$key];
@@ -175,8 +176,8 @@ if ($pagelink) {
             $webpages->link = "{$CFG->wwwroot}/local/kdashboard/?p={$webpages->link}";
             $webpages->access = get_string_kopere("webpages_access");
 
-            if (file_exists(__DIR__ . "/../kopere_pay/lib.php") && $webpages->courseid) {
-                $koperepaydetalhe = $DB->get_record("kopere_pay_detalhe", ["course" => $webpages->courseid]);
+            if (file_exists(__DIR__ . "/../kpay/lib.php") && $webpages->courseid) {
+                $koperepaydetalhe = $DB->get_record("kpay_detalhe", ["course" => $webpages->courseid]);
                 $precoint = str_replace(".", "", $koperepaydetalhe->preco);
                 $precoint = str_replace(",", ".", $precoint);
                 $precoint = floatval("0{$precoint}");

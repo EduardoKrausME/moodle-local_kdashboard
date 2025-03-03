@@ -41,6 +41,7 @@ use local_kdashboard\util\header;
 use local_kdashboard\util\html;
 use local_kdashboard\util\json;
 use local_kdashboard\util\message;
+use local_kdashboard\util\url_util;
 use local_kdashboard\util\user_util;
 use local_kdashboard\util\string_util;
 use local_kdashboard\util\title_util;
@@ -74,8 +75,8 @@ class courses {
         $table->add_header(get_string_kopere("courses_enrol"), "enrolments",
             table_header_item::TYPE_INT, null, "width:50px;white-space:nowrap;");
 
-        $table->set_ajax_url(local_kdashboard_makeurl("courses", "load_all_courses"));
-        $table->set_click_redirect(local_kdashboard_makeurl("courses", "details", ["courseid" => "{id}"]), "id");
+        $table->set_ajax_url(url_util::makeurl("courses", "load_all_courses"));
+        $table->set_click_redirect(url_util::makeurl("courses", "details", ["courseid" => "{id}"]), "id");
         $table->print_header();
         $table->close();
 
@@ -92,12 +93,14 @@ class courses {
     public function load_all_courses() {
         global $DB;
 
+        $mycourses = optional_param("mycourses", false, PARAM_INT);
+
         $cache = \cache::make("local_kdashboard", "courses_all_courses");
         $cachekey = "load_all_courses";
-        if ($cache->has($cachekey)) {
-            $data = $cache->get($cachekey);
+        if (!$mycourses && $cache->has($cachekey)) {
+            $courses = $cache->get($cachekey);
         } else {
-            $data = $DB->get_records_sql("
+            $courses = $DB->get_records_sql("
                 SELECT c.id, c.fullname, c.shortname, c.visible, COUNT(DISTINCT ue.id) AS enrolments
                   FROM {course}           c
                   JOIN {enrol}            e ON e.courseid = c.id
@@ -106,10 +109,22 @@ class courses {
               GROUP BY c.id, c.fullname, c.shortname, c.visible;"
             );
 
-            $cache->set($cachekey, $data);
+            if ($mycourses) {
+                $returncourses = [];
+                foreach ($courses as $course) {
+                    $coursecontext = \context_course::instance($course->id);
+                    if (has_capability("moodle/course:view", $coursecontext)) {
+                        $returncourses[] = $course;
+                    }
+                }
+
+                $courses = $returncourses;
+            } else {
+                $cache->set($cachekey, $courses);
+            }
         }
 
-        json::encode($data);
+        json::encode($courses);
     }
 
     /**
@@ -173,7 +188,7 @@ class courses {
         $course = $DB->get_record("course", ["id" => $courseid]);
         header::notfound_null($course, get_string_kopere("courses_notound"));
 
-        dashboard_util::add_breadcrumb(get_string_kopere("courses_title"), local_kdashboard_makeurl("courses", "dashboard"));
+        dashboard_util::add_breadcrumb(get_string_kopere("courses_title"), url_util::makeurl("courses", "dashboard"));
         dashboard_util::add_breadcrumb($course->fullname);
         dashboard_util::start_page();
 
@@ -192,7 +207,7 @@ class courses {
 
         echo '<div class="element-box table-responsive table-new-enrol" style="display:none">';
         title_util::print_h3("courses_enrol_new");
-        $form = new form(local_kdashboard_makeurl("courses", "enrol_new", ["courseid" => $course->id]));
+        $form = new form(url_util::makeurl("courses", "enrol_new", ["courseid" => $course->id]));
         $form->add_input(
             input_email::new_instance()
                 ->set_name("usuario-email")
@@ -217,8 +232,8 @@ class courses {
         $table->add_header(get_string_kopere("courses_student_email"), "email");
         $table->add_header(get_string_kopere("courses_student_status"), "status", table_header_item::RENDERER_STATUS);
 
-        $table->set_ajax_url(local_kdashboard_makeurl("enroll", "ajax_dashboard", ["courseid" => "{$courseid}"]));
-        $table->set_click_redirect(local_kdashboard_makeurl("users", "details", ["userid" => "{id}"]), "id");
+        $table->set_ajax_url(url_util::makeurl("enroll", "ajax_dashboard", ["courseid" => "{$courseid}"]));
+        $table->set_click_redirect(url_util::makeurl("users", "details", ["userid" => "{id}"]), "id");
         $table->print_header();
         $table->close();
 
@@ -246,7 +261,7 @@ class courses {
         $course = $DB->get_record("course", ["id" => $courseid]);
         header::notfound_null($course, get_string_kopere("courses_notound"));
 
-        dashboard_util::add_breadcrumb(get_string_kopere("courses_title"), local_kdashboard_makeurl("courses", "dashboard"));
+        dashboard_util::add_breadcrumb(get_string_kopere("courses_title"), url_util::makeurl("courses", "dashboard"));
         dashboard_util::add_breadcrumb($course->fullname);
         dashboard_util::add_breadcrumb(get_string_kopere("courses_enrol_new"));
         dashboard_util::start_page();
@@ -279,7 +294,7 @@ class courses {
                 }
 
                 button::add(get_string_kopere("courses_student_cadastrar"),
-                    local_kdashboard_makeurl("courses", "enrol_new",
+                    url_util::makeurl("courses", "enrol_new",
                         ["courseid" => "{$course->id}&userid={$user->id}&matricular=1"]));
             }
 
@@ -323,7 +338,7 @@ class courses {
                         $a = (object)["login" => $newuser->username, "senha" => $password];
                         message::schedule_message_success(get_string_kopere("courses_student_ok", $a));
                         header::location(
-                            local_kdashboard_makeurl("courses", "enrol_new",
+                            url_util::makeurl("courses", "enrol_new",
                                 ["courseid" => "{$course->id}&userid={$newuser->id}"]));
                     } catch (\moodle_exception $e) {
                         message::print_danger($e->getMessage());
@@ -332,7 +347,7 @@ class courses {
             }
 
             title_util::print_h3("courses_enrol_new_form");
-            $form = new form(local_kdashboard_makeurl("courses", "enrol_new", ["courseid" => "{$course->id}"]));
+            $form = new form(url_util::makeurl("courses", "enrol_new", ["courseid" => "{$course->id}"]));
 
             $form->add_input(
                 input_text::new_instance()
@@ -411,13 +426,13 @@ class courses {
 
                 /** @var local_kdashboard_pages $webpages */
                 foreach ($webpagess as $webpages) {
-                    echo "<p><a href='" . local_kdashboard_makeurl("webpages", "page_details", ["id" => $webpages->id]) .
+                    echo "<p><a href='" . url_util::makeurl("webpages", "page_details", ["id" => $webpages->id]) .
                         "{'>&nbsp;&nbsp;&nbsp;&nbsp;}" .
                         $webpages->title . "</a></p>";
                 }
             }
 
-            $form = new form(local_kdashboard_makeurl("webpages", "page_edit_save"), "form-inline");
+            $form = new form(url_util::makeurl("webpages", "page_edit_save"), "form-inline");
             $form->create_hidden_input("id", 0);
             $form->create_hidden_input("courseid", $course->id);
             $form->create_hidden_input("title", $course->fullname);

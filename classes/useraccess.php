@@ -30,6 +30,7 @@ use local_kdashboard\html\inputs\input_select;
 use local_kdashboard\html\table_header_item;
 use local_kdashboard\util\dashboard_util;
 use local_kdashboard\util\datatable_search_util;
+use local_kdashboard\util\url_util;
 
 /**
  * Class useraccess
@@ -52,7 +53,7 @@ class useraccess {
 
         echo '<div class="element-box bloco_changue_mes">';
         $changuemes = optional_param("changue_mes", date("Y-m"), PARAM_TEXT);
-        $form = new form(local_kdashboard_makeurl("useraccess", "dashboard"));
+        $form = new form(url_util::makeurl("useraccess", "dashboard"));
         $form->add_input(input_select::new_instance()
             ->set_title(get_string_kopere("select_month"))
             ->set_name("changue_mes")
@@ -70,8 +71,8 @@ class useraccess {
         $table->add_header(get_string_kopere("user_table_celphone"), "phone2");
         $table->add_header(get_string_kopere("user_table_city"), "city");
 
-        $table->set_ajax_url(local_kdashboard_makeurl("useraccess", "load_all_users", ["changue_mes" => $changuemes]));
-        $table->set_click_redirect(local_kdashboard_makeurl("users", "details", ["userid" => "{userid}"]), "userid");
+        $table->set_ajax_url(url_util::makeurl("useraccess", "load_all_users", ["changue_mes" => $changuemes]));
+        $table->set_click_redirect(url_util::makeurl("users", "details", ["userid" => "{userid}"]), "userid");
         $table->print_header();
         $table->close(true, ["order" => [[1, "asc"]]]);
 

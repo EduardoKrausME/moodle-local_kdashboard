@@ -77,7 +77,7 @@ class dashboard_util {
         if ($settingurl != null) {
             $link
                 .= "<div class=\"setting\">
-                        <a href='{$settingurl}' class=\"kopere_link\">
+                        <a href='{$settingurl}' class=\"klink\">
                             <img src='{$CFG->wwwroot}/local/kdashboard/assets/dashboard/img/top-settings.svg'
                                  alt=\"Settings\" >
                         </a>
@@ -188,7 +188,7 @@ class dashboard_util {
         $plugin = "kdashboard";
         preg_match("/(.*?)-/", $menu->get_classname(), $menufunctionstart);
         if (isset($menufunctionstart[1])) {
-            $plugin = "kopere_{$menufunctionstart[1]}";
+            $plugin = "k{$menufunctionstart[1]}";
         }
 
         $submenuhtml = "";
@@ -205,10 +205,10 @@ class dashboard_util {
                 $iconurl = self::get_icon("/local/{$plugin}/assets/dashboard/img/iconactive/{$submenu->get_icon()}.svg");
             }
 
-            $url = local_kdashboard_makeurl($submenu->get_classname(), $submenu->get_methodname());
+            $url = url_util::makeurl($submenu->get_classname(), $submenu->get_methodname());
             $submenuhtml .= "
                 <li class='contains_branch {$classsub}'>
-                    <a href='{$url}{$submenu->get_urlextra()}' class=\"kopere_link\">
+                    <a href='{$url}{$submenu->get_urlextra()}' class=\"klink\">
                         <img src='{$iconurl}' class='menu-icon' alt='Icon {$submenu->get_title()}'>
                         <span>{$submenu->get_title()}</span>
                     </a>
@@ -219,10 +219,10 @@ class dashboard_util {
         }
 
         $iconurl = self::get_icon("/local/{$plugin}/assets/dashboard/img/icon{$class}/{$menu->get_icon()}.svg");
-        $url = local_kdashboard_makeurl($menu->get_classname(), $menu->get_methodname());
+        $url = url_util::makeurl($menu->get_classname(), $menu->get_methodname());
         $retorno .= "
                 <li class='$class'>
-                    <a href='{$url}' class=\"kopere_link\">
+                    <a href='{$url}' class=\"klink\">
                         <img src='{$iconurl}' class='menu-icon' alt='Icon {$menu->get_name()}'>
                         <span>{$menu->get_name()}</span>
                     </a>

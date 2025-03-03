@@ -43,8 +43,8 @@ class report_benchmark_test extends report_benchmark {
         return [
             "limit" => .5,
             "over" => .8,
-            "start" => KOPERE_BENCHSTART,
-            "stop" => KOPERE_BENCHSTOP,
+            "start" => LOCAL_KDASHBOARD_BENCHSTART,
+            "stop" => LOCAL_KDASHBOARD_BENCHSTOP,
             "fail" => "slowserver",
         ];
 

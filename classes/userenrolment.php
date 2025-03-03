@@ -33,6 +33,7 @@ use local_kdashboard\html\inputs\input_select;
 use local_kdashboard\util\dashboard_util;
 use local_kdashboard\util\header;
 use local_kdashboard\util\message;
+use local_kdashboard\util\url_util;
 
 /**
  * Class userenrolment
@@ -59,7 +60,7 @@ class userenrolment {
         dashboard_util::add_breadcrumb(get_string_kopere("userenrolment_detail"));
         dashboard_util::start_page();
 
-        $form = new form(local_kdashboard_makeurl("userenrolment", "mathedit_save"));
+        $form = new form(url_util::makeurl("userenrolment", "mathedit_save"));
         $form->create_hidden_input("ueid", $ueid);
 
         $statusvalues = [
