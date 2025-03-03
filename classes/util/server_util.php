@@ -33,13 +33,13 @@ namespace local_kdashboard\util;
  */
 class server_util {
     /**
-     * Function get_kopere_pathath
+     * Function get_kpathath
      *
      * @param bool $create
      *
      * @return string
      */
-    public static function get_kopere_pathath($create = true) {
+    public static function get_kpathath($create = true) {
         global $CFG;
 
         if ($create) {

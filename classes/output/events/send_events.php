@@ -37,15 +37,15 @@ use local_kdashboard\vo\local_kdashboard_event;
  */
 class send_events {
     /** @var local_kdashboard_event */
-    private $koperedashboardevents;
+    protected $koperedashboardevents;
 
     /** @var \core\event\base */
-    private $event;
+    protected $event;
 
     /** @var string */
-    private $subject;
+    protected $subject;
     /** @var string */
-    private $message;
+    protected $message;
 
     /**
      * Function get_local_kdashboard_event
@@ -232,7 +232,7 @@ class send_events {
     /**
      * Function load_template
      */
-    private function load_template() {
+    protected function load_template() {
 
         $templatecontent = config::get_key("notification-template");
 
@@ -247,7 +247,7 @@ class send_events {
      *
      * @return mixed
      */
-    private function replace_date($text) {
+    protected function replace_date($text) {
         if (strpos($text, "{[date") === false) {
             return $text;
         }
@@ -284,7 +284,7 @@ class send_events {
      *
      * @return mixed
      */
-    private function replace_tag($text, $course, $keyname) {
+    protected function replace_tag($text, $course, $keyname) {
         if (strpos($text, "{[{$keyname}") === false) {
             return $text;
         }
@@ -339,7 +339,7 @@ class send_events {
      * @return mixed
      * @throws \dml_exception
      */
-    private function login_generate_password($user) {
+    protected function login_generate_password($user) {
         global $DB;
         $resetrecord = (object)[
             "timerequested" => strtotime("+48 hours", time()),

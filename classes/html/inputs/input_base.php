@@ -213,8 +213,7 @@ class input_base implements i_input {
     /**
      * Function set_value
      *
-     * @param string $value
-     * @param string $type
+     * @param $value
      *
      * @return $this|mixed
      * @throws \coding_exception

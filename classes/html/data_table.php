@@ -167,6 +167,7 @@ class data_table {
      * @throws \coding_exception
      */
     public function print_header($class = "", $printbody = true, $returnhtml = false) {
+
         $return = "";
 
         if ($this->isexport && $this->ajaxurl == null) {

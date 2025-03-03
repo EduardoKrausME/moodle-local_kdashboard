@@ -34,7 +34,7 @@ class config {
     /**
      * Function get_key
      *
-     * @param string $key
+     * @param $key
      * @param string $default
      *
      * @return mixed|string
@@ -56,7 +56,7 @@ class config {
     /**
      * Function get_key_int
      *
-     * @param string $key
+     * @param $key
      * @param int $default
      *
      * @return int|mixed

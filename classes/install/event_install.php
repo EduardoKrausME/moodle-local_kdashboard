@@ -82,7 +82,7 @@ class event_install {
      *
      * @throws \dml_exception
      */
-    private static function insert($event) {
+    public static function insert($event) {
         global $DB;
 
         $saveevent = $DB->record_exists("local_kdashboard_event", ["module" => $event->module, "event" => $event->event]);

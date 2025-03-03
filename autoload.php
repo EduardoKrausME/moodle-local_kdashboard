@@ -26,7 +26,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__ . "/locallib.php");
+require_once(__DIR__ . "/lib.php");
 
 spl_autoload_register("kdashboard_autoload");
 /**
@@ -104,3 +104,4 @@ function get_string_kopere($identifier, $object = null) {
 // Alias this class to the old name.
 // In future all uses of this class will be corrected and the legacy references will be removed.
 class_alias( \local_kdashboard\util\message::class, "local_kdashboard\\util\\mensagem");
+class_alias( \local_kdashboard\install\event_install::class, "local_kdashboard\\install\\users_import_install");
