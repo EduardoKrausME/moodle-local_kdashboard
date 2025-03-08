@@ -179,6 +179,7 @@ $string['help_title'] = 'Help with this page';
 $string['inactive'] = 'Inactive';
 $string['integracaoroot'] = 'Integration';
 $string['invisible'] = 'Hidden';
+$string['kdashboard:ajax'] = 'Ajax';
 $string['kdashboard:emailconfirmsubmission'] = 'Send Notifications';
 $string['kdashboard:manage'] = 'Manage Kopere Dashboard';
 $string['kdashboard:view'] = 'View Kopere Dashboard';
